@@ -1,5 +1,5 @@
 <h1> {{ title }} </h1>
-<ap-photo
-  url="https://hlj.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/t/a/tam60782_6.png"
- alt="f-14" >
-</ap-photo>
+<ap-photo *ngFor="let item of photos" 
+  [url]="item.url"    
+  [description]="item.description" >
+</ap-photo> 
