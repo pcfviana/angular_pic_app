@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { Photo } from './photo';
+
 const API = 'http://localhost:3000';
 
 @Injectable({ providedIn: 'root' })
@@ -12,6 +14,6 @@ export class PhotoService {
     {
         return this
                     .http
-                    .get<Object[]>(API + '/photos');
+                    .get<Photo[]>(API + '/photos');
     }
 }
