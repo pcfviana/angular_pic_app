@@ -17,6 +17,13 @@ const routes: Routes =
             photos: PhotoListResolver
         }
     },
+    { 
+        path: 'user/:userName',
+        component: PhotoListComponent,
+        resolve : {
+            photos: PhotoListResolver
+        }
+    },
     { path: 'p/add', component: PhotoFormComponent },
     { path: '**', component: NotFoundComponent }
 ];

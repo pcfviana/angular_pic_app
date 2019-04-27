@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/auth.service';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../core/auth.service';
 
 @Component({
     templateUrl : './signin.component.html'
@@ -9,7 +11,8 @@ export class SignInComponent implements OnInit  {
     loginForm: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
-                private authService: AuthService){
+                private authService: AuthService,
+                private router: Router){
 
     }
 
@@ -29,9 +32,10 @@ export class SignInComponent implements OnInit  {
         .authService
         .authenticate(userName, password)
         .subscribe(
-            () => console.log('autenticado'),
+            () => this.router.navigate(['photos', userName]),
             err => {
                 console.log(err);
+                alert('user or pwd invalid');
                 this.loginForm.reset();
             } );
     }
