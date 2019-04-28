@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { AuthService } from '../../core/auth.service';
 })
 export class SignInComponent implements OnInit  {
     loginForm: FormGroup;
+    @ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>;
 
     constructor(private formBuilder: FormBuilder,
                 private authService: AuthService,
@@ -35,8 +36,9 @@ export class SignInComponent implements OnInit  {
             () => this.router.navigate(['photos', userName]),
             err => {
                 console.log(err);
-                alert('user or pwd invalid');
                 this.loginForm.reset();
+                this.userNameInput.nativeElement.focus();
+                alert('user or pwd invalid');
             } );
     }
 }
