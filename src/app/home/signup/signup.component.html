@@ -47,6 +47,10 @@
             *ngIf="signupForm.get('userName').errors?.pattern"
             text="Invalid user name" >
         </ap-vmessage> -->
+        <ap-vmessage 
+            *ngIf="signupForm.get('userName').errors?.lowercase"
+            text="Invalid user name" >
+        </ap-vmessage>
     </div>
 
     <div class="form-group">
