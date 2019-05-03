@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { VMessageModule } from 'src/app/shared/vmessage/vmessage.module';
 import { RouterModule } from '@angular/router';
 import { PhotoModule } from '../photo/photo.module';
+import { ImediateClickDirectiveModule } from 'src/app/shared/directives/imediate-click/imediate-click.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { PhotoModule } from '../photo/photo.module';
         VMessageModule,
         FormsModule,
         RouterModule,
-        PhotoModule
+        PhotoModule,
+        ImediateClickDirectiveModule
     ]
 })
 
