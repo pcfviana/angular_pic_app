@@ -46,7 +46,10 @@
           <input formControlName="allowComments" type="checkbox">
         </label>
       </div>
-      <button [disabled]="photoForm.invalid" type="submit" class="btn btn-primary btn-block">
+      <button 
+        [disabled]="photoForm.invalid" 
+        type="submit" 
+        class="btn btn-primary btn-block">
         Upload
       </button>
 

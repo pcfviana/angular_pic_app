@@ -32,7 +32,8 @@ export class PhotoFormComponent implements OnInit {
         
     this.photoService
         .upload(description, allowComments, this.file)
-        .subscribe(() => this.router.navigate(['']));
+        .subscribe(() => this.router.navigate(['']),
+            erros => { console.log(erros); });
   }
 
   handleFile(file:File){

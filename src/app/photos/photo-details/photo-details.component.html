@@ -9,7 +9,13 @@
           <p class="text-left break-word">{{photo.description}}</p>
           <hr>
         </small>
-        <ap-photo-comments [photoId]="photoId"></ap-photo-comments>
+        <ap-photo-comments 
+          *ngIf="photo.allowComments; else warnning"
+          [photoId]="photoId">
+        </ap-photo-comments>
+        <ng-template #warnning>
+          <p>comments disabled</p>
+        </ng-template>
       </div>
     </div>
   </div>
