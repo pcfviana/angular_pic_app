@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 
 import { Photo } from './photo';
 import { PhotoCommment } from './photo-comment';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { throwError } from 'rxjs';
 
 const API = 'http://localhost:3000/';
 
@@ -50,5 +53,13 @@ export class PhotoService {
 
     removePhoto(photoId:number) {
         return this.http.delete(API + 'photos/' + photoId);
+    }
+
+    like(photoId:number){
+        return this.http.post(API + '/photos/' + photoId + '/like' ,{}, { observe: 'response'}
+        ).pipe(map(res => { true }))
+         .pipe(catchError(err => {
+             return err.status == '304' ? of(false) : throwError(err);
+         }));
     }
 }
