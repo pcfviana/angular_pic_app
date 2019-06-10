@@ -4,7 +4,7 @@ import { LoadingType } from './loading-type';
 import { startWith } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
-export class LoadingSercice {
+export class LoadingService {
 
     loadingSubject = new Subject<LoadingType>();
 
