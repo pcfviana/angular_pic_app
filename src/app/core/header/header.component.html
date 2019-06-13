@@ -1,6 +1,10 @@
 <header class="fixed-top">
     <nav class="navbar navbar-light bg-white">
-        <a class="navbar-brand">ANGULAR-PIC APP</a>
+        <a class="navbar-brand">
+            <i (click)="menu.toggle()" class="fa fa-bars mr-2" ></i>
+            ANGULAR-PIC APP
+        </a>
+        <ap-menu #menu></ap-menu>
         <div *ngIf="(user$ | async) as user; else login">
             <i class="fa fa-user-circle mr-1"></i>
             <a class="ml-1">{{ user.name }}</a>
