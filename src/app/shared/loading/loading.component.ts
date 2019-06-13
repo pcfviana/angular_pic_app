@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-    template : 'ap-loading',
+    selector : 'ap-loading',
     templateUrl: './loading.component.html',
     styleUrls : ['./loading.component.css']
 })
@@ -12,12 +12,12 @@ export class LoadingComponent implements OnInit {
    
     loading$: Observable<string>;
 
-    constructor(private ladingService: LoadingService) {
+    constructor(private loadingService: LoadingService) {
 
     }
 
     ngOnInit(): void {
-        this.loading$ = this.ladingService
+        this.loading$ = this.loadingService
         .getLoading()
         .pipe(map(loadingType => loadingType.valueOf()));
     }
