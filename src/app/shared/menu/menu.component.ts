@@ -9,7 +9,7 @@ export class MenuComponent {
 
     isShown = false;
 
-    toggle(){        
+    toggle(){    
         this.isShown = !this.isShown;
     }
 }
